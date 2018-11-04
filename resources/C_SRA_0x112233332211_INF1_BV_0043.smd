@@ -1,0 +1,18 @@
+%Purpose : To dispatch Set random address at INF_1
+
+START_TC  "dispatch Set random address at INF_1"
+
+INCLUDE "LE_cmd_msg.mlb" 
+INCLUDE "LE_evt_msg.mlb" 
+
+SET_RANDOM_ADDR:
+
+    R_ADDR = "<R_ADDR_INF1>"
+
+    CONSTRUCT,    LE_SET_RANDOM_ADDRESS,   36,                ,          ,      ,               ,
+    r_address = R_ADDR
+	
+    SEND,         LE_SET_RANDOM_ADDRESS,   36, INF_1,          ,      ,               ,
+    WAIT,        HCI_CMD_COMPLETE_EVENT,  12, INF_1,    PASSED,  5000,  INDETERMINATE,
+
+END_TC

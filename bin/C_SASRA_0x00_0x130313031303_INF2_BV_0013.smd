@@ -1,0 +1,18 @@
+%Test Purpose: To dispatch Set Advertising Set Random Address command on INF_2
+
+START_TC  "Dispatch SET ADVERTISMENT SET RANDOM ADDRESS command on INF_2"
+
+INCLUDE "LE_cmd_msg.mlb" 
+INCLUDE "LE_evt_msg.mlb" 
+
+IGNORE_STATE:
+    
+
+
+	DELAY,                                       ,            ,       ,                 ,        1,   SASRA,
+
+SASRA:
+    SEND,                      HCI_LE_SET_ADV_SET_RANDOM_ADDR,           <var>,  INF_2,                ,          ,               ,
+    WAIT,                              HCI_CMD_COMPLETE_EVENT,          518,  INF_2,          PASSED,      5000,         FAILED,
+
+END_TC

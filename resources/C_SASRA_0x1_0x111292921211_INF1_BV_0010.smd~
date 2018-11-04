@@ -1,0 +1,8 @@
+
+	DELAY,                                       ,            ,       ,                 ,        1,   SASRA,
+
+SASRA:
+    SEND,                      HCI_LE_SET_ADV_SET_RANDOM_ADDR,            <var>,  INF_1,                ,          ,               ,
+    WAIT,                              HCI_CMD_COMPLETE_EVENT,          518,  INF_1,          PASSED,      5000,         FAILED,
+
+END_TC
